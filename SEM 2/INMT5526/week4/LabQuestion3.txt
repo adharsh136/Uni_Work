@@ -1,0 +1,1 @@
+alter table TransactionItem add column taxAmount float generated always as (hasGst*total_price/11);

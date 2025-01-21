@@ -1,0 +1,8 @@
+Merged Amazon_sales_report_clean.csv and Sales report.csv. - left outer join on SKU.
+7684 rows have 'null' as colour after merging.- filtered out those rows.
+Capitalized each word data in "ship-city" and "ship-state" to maintain Uniformity.
+Filtered out rows that had 0 as data in the "Qty" column. - this automatically eliminated cancelled orders (courier status column).
+Filtered out rows that had 'cancelled' data in the 'status' cloumn.
+Filtered out rows that did not have 'Kurta' as value in the 'category' column.
+Filtered out rows that had 0 as data in 'Amount' column - this automatically eliminated 0s in 'Unit Price' column.
+In the 'ship-city' column replaced 'Bangalore' to 'Bengaluru'.

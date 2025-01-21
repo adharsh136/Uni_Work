@@ -1,0 +1,2 @@
+create unique index TransactionItemIndex on TransactionItem(id);
+create unique index TransactionIndex on Transaction(id);

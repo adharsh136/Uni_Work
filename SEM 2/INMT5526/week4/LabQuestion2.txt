@@ -1,0 +1,2 @@
+alter table TransactionItem drop column total_price;
+alter table TransactionItem add column total_price FLOAT generated always as (unit_price*quantity);

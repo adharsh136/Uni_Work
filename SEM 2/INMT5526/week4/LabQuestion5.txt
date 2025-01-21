@@ -1,0 +1,4 @@
+select description,unit_price from TransactionItem where unit_price>110.00;
+select * from TransactionItem where quantity != 1;
+select description from TransactionItem where description like 'B%';
+select description,unit_price from TransactionItem where unit_price<201.00 and hasGst = 1;

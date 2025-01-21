@@ -1,0 +1,4 @@
+alter table TransactionItem add constraint unit_price_constraint1 check (unit_price>0);
+alter table TransactionItem add constraint quantity_constraint1 check (quantity>0);
+alter table TransactionItem modify column hasGst boolean default 0;
+alter table TransactionItem modify column description varchar(255) NOT NULL;
