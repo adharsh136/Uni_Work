@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>23796349_Adharsh_labs6_9.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/**
+ * Obsidian style
+ * ported by Alexander Marenin (http://github.com/ioncreature)
+ */
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #282b2e;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-selector-id {
+  color: #93c763;
+}
+
+.hljs-number {
+  color: #ffcd22;
+}
+
+.hljs {
+  color: #e0e2e4;
+}
+
+.hljs-attribute {
+  color: #668bb0;
+}
+
+.hljs-code,
+.hljs-class .hljs-title,
+.hljs-section {
+  color: white;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #d39745;
+}
+
+.hljs-meta {
+  color: #557182;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-bullet,
+.hljs-subst,
+.hljs-emphasis,
+.hljs-type,
+.hljs-built_in,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #8cbbad;
+}
+
+.hljs-string,
+.hljs-symbol {
+  color: #ec7600;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+  color: #818e96;
+}
+
+.hljs-selector-class {
+  color: #A082BD
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.hljs-title,
+.hljs-section,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
+  <h2>Labs 6-9</h2>
+  <p><b>Student ID:</b> 23796349</p>
+  <p><b>Student Name:</b> Adharsh Sundaram Soudakar</p>
+</div>
+<div style="page-break-after: always;"></div>
+<h1 id="lab-6">Lab 6</h1>
+<h2 id="set-up-an-ec2-instance">Set up an EC2 instance</h2>
+<h3 id="1-create-an-ec2-micro-instance-with-ubuntu-and-ssh-into-it">[1] Create an EC2 micro instance with Ubuntu and SSH into it</h3>
+<ul>
+<li>I used AWS CLI to create the EC2 instance required to complete this lab.</li>
+<li>The steps followed is the same steps that were done in <code>Lab 2</code>.</li>
+<li>The screenshots below show the commands and steps followed to create the EC2 instance and connect to it using <code>SSH</code>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-1.png" alt="EC2" width="1920"/>
+<h3 id="2-install-the-python-3-virtual-environment-package">[2] Install the Python 3 virtual environment package</h3>
+<ul>
+<li>Before installing Python 3 virtual environment, the instance has to be updated and upgraded to the latest version.</li>
+<li>The following commands were used:</li>
+</ul>
+<pre class="hljs"><code><div>sudo apt-get update
+sudo apt-get upgrade
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the output:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-2.png" alt="update&upgrade" width="1920"/>
+<ul>
+<li>Then the following command can be used to install Python 3 virtual environment:</li>
+</ul>
+<pre class="hljs"><code><div>sudo apt-get install python3-venv
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the output:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-3.png" alt="venv" width="1920"/>
+<ul>
+<li>Since we are going to run commands that require <strong>su</strong> access, it will be easier to persist the command line to be in <strong>su</strong> state for a while.</li>
+<li>This can be achieved with the following command:</li>
+</ul>
+<pre class="hljs"><code><div>sudo bash
+</div></code></pre>
+<h3 id="3-access-a-directory">[3] Access a directory</h3>
+<ul>
+<li>To create the required directories and traverse to that location, the following commands were used:</li>
+</ul>
+<pre class="hljs"><code><div>mkdir -p opt/wwc/mysites
+<span class="hljs-built_in">cd</span> opt/wwc/mysites
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the output:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-4.png" alt="mkdir" width="1920"/>
+<h3 id="4-set-up-a-virtual-environment">[4] Set up a virtual environment</h3>
+<ul>
+<li>To set up a virtual environment, the following command can be used:<br>
+<em>NOTE</em>: Here we create a virtual environment called <strong>myvenv</strong></li>
+</ul>
+<pre class="hljs"><code><div>python3 -m venv myvenv
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the output:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-5.png" alt="venv1" width="1249"/>
+<h3 id="5-activate-the-virtual-environment">[5] Activate the virtual environment</h3>
+<ul>
+<li>The virtual environment (myvenv) can be activated using the following command:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-built_in">source</span> myvenv/bin/activate
+</div></code></pre>
+<ul>
+<li>Now that we are inside the virtual environment, we can install <strong>django</strong> and create a project called <strong>lab</strong> using the following commands:</li>
+</ul>
+<pre class="hljs"><code><div>pip install django
+django admin startproject lab
+</div></code></pre>
+<ul>
+<li>Then we traverse into the project (lab) directory and create an app called <strong>polls</strong> using the following commands:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> lab
+python3 manage.py startapp polls
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the output of the above steps:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-6.png" alt="djangoset" width="1249"/>
+<ul>
+<li>The screenshot below shows the files and content created after executing the <code>startproject</code> and <code>startapp</code> commands:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-7.png" alt="files&content" width="1249"/>
+<h3 id="6-install-nginx">[6] Install nginx</h3>
+<ul>
+<li>To host our web app, we need a web server. Here, we plan to use <strong>nginx</strong>. It can be installed using the following command:</li>
+</ul>
+<pre class="hljs"><code><div>apt install nginx
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the installation output:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-8.png" alt="nginx" width="1920"/>
+<h3 id="7-configure-nginx">[7] Configure nginx</h3>
+<ul>
+<li>
+<p>We need to configure nginx, specifying the port to listen to and how requests should be handled (forward requests to localhost on port 8000).</p>
+</li>
+<li>
+<p>The following code accomplishes the same:<br>
+<em>NOTE</em>: This code was placed in the configuration file <code>default</code> located in the directory <code>/etc/nginx/sites-enabled/</code></p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-section">server</span> {
+  <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span> default_server;
+  <span class="hljs-attribute">listen</span> [::]:<span class="hljs-number">80</span> default_server;
+
+  <span class="hljs-attribute">location</span> / {
+    <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-Host <span class="hljs-variable">$host</span>;
+    <span class="hljs-attribute">proxy_set_header</span> X-Real-IP <span class="hljs-variable">$remote_addr</span>;
+
+    <span class="hljs-attribute">proxy_pass</span> http://127.0.0.1:8000;
+  }
+}
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the changes made to the <code>default</code> file:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-9.png" alt="nginxconfig" width="1059"/>
+<h3 id="8-restart-nginx">[8] Restart nginx</h3>
+<ul>
+<li>We need to restart nginx to apply the changes made to the configuration file. This can be done using the following command:</li>
+</ul>
+<pre class="hljs"><code><div>service nginx restart
+</div></code></pre>
+<h3 id="9-access-your-ec2-instance">[9] Access your EC2 instance</h3>
+<ul>
+<li>To run our web application, use the following command:<br>
+<em>NOTE</em>: This will start the Django development server on port <strong>8000</strong>.</li>
+</ul>
+<pre class="hljs"><code><div>python3 manage.py runserver 8000
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the output on the terminal when the above command was executed:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-11.png" alt="runserver" width="1252"/>
+<ul>
+<li>To verify if this works correctly, we can enter the IP address of the created EC2 instance in a browser.</li>
+<li>The following screenshot shows the page that was displayed:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-10.png" alt="showserver" width="1323"/>
+<h2 id="set-up-django-inside-the-created-ec2-instance">Set up Django inside the created EC2 instance</h2>
+<h3 id="1-edit-the-following-files-create-them-if-non-existent">[1] Edit the following files (create them if non-existent)</h3>
+<ul>
+<li>
+<p><strong>Vim</strong> text editor was used to edit all the three files.</p>
+</li>
+<li>
+<p>The file <code>views.py</code> in the directory <code>polls</code> was replaced with the following code:</p>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponse
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span><span class="hljs-params">(request)</span>:</span>
+    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">"Hello, world."</span>)
+</div></code></pre>
+<ul>
+<li>The file <code>urls.py</code> was created in the directory <code>polls</code> and the following code was added:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponse
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span><span class="hljs-params">(request)</span>:</span>
+    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">"Hello, world."</span>)
+</div></code></pre>
+<ul>
+<li>The file <code>urls.py</code> in the directory <code>lab</code> was replaced with the following code:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> include, path
+<span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> admin
+
+urlpatterns = [
+    path(<span class="hljs-string">'polls/'</span>, include(<span class="hljs-string">'polls.urls'</span>)),
+    path(<span class="hljs-string">'admin/'</span>, admin.site.urls),
+]
+</div></code></pre>
+<h3 id="2-run-the-web-server-again">[2] Run the web server again</h3>
+<ul>
+<li>The same command used in <a href="#9-access-your-ec2-instance">Access your EC2 instance</a> was used again to start the Django web development server.</li>
+<li>The screenshot below shows the output:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-13.png" alt="showserver" width="1259"/>
+<h3 id="3-access-the-ec2-instance">[3] Access the EC2 instance</h3>
+<ul>
+<li>Use the URL:<code>http://&lt;ip_add_of_your_EC2&gt;/polls/</code> to see the HTTP Response in your browser screen.</li>
+<li>In my case the URL is <code>http://13.209.14.57/polls/</code>.</li>
+<li>The screenshot below shows the output that I got:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-12.png" alt="HttpResponse" width="1329"/>
+<h2 id="set-up-an-alb">Set up an ALB</h2>
+<h3 id="1-create-an-application-load-balancer">[1] Create an application load balancer</h3>
+<p>To create the ALB, the code in <strong>Lab 5</strong> was reused:</p>
+<p><em>NOTE</em>: Refer to comments in the code to understand the implementation.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> boto3
+
+<span class="hljs-comment"># Constants</span>
+<span class="hljs-comment">#The created instance's ID</span>
+inst_ID = <span class="hljs-string">'i-078581ec7b4427335'</span>
+<span class="hljs-comment">#The security group created in previous lab (lab5), has both ssh and http permissions</span>
+sec_grp_id = <span class="hljs-string">'sg-0ba69d87ee7933db6'</span>
+<span class="hljs-comment">#The subnets 'a' and 'c' IDs (since my instance is a t2.micro machine)</span>
+SUBNETS = [ <span class="hljs-string">'subnet-09f996d1ad81767a9'</span>, <span class="hljs-string">'subnet-0b3601189181ee48e'</span>]
+<span class="hljs-comment">#The default VPC ID</span>
+VPC_ID = <span class="hljs-string">'vpc-01f842220d0070f97'</span>
+
+<span class="hljs-comment">#Initiating client for alb </span>
+client = boto3.client(<span class="hljs-string">'elbv2'</span>)
+
+<span class="hljs-comment">#Application Load Balancer</span>
+response = client.create_load_balancer(
+   Name=<span class="hljs-string">'23796349-ALB'</span>,
+   Subnets=SUBNETS[:<span class="hljs-number">2</span>],  
+   SecurityGroups=[sec_grp_id],
+   Scheme=<span class="hljs-string">'internet-facing'</span>,
+   Tags=[
+       {
+           <span class="hljs-string">'Key'</span>: <span class="hljs-string">'Name'</span>,
+           <span class="hljs-string">'Value'</span>: <span class="hljs-string">'23796349-ALB'</span>
+       },
+   ]
+)
+lb_arn = response[<span class="hljs-string">'LoadBalancers'</span>][<span class="hljs-number">0</span>][<span class="hljs-string">'LoadBalancerArn'</span>]
+print(<span class="hljs-string">f"Load Balancer ARN: <span class="hljs-subst">{lb_arn}</span>"</span>)
+ 
+<span class="hljs-comment">#Target group</span>
+response = client.create_target_group(
+   Name=<span class="hljs-string">'23796349-TG'</span>,
+   Protocol=<span class="hljs-string">'HTTP'</span>,
+   Port=<span class="hljs-number">80</span>,
+   HealthCheckPath=<span class="hljs-string">'/polls/'</span>, <span class="hljs-comment">#Specifying polls as the path for heath check</span>
+   VpcId=VPC_ID,
+   Tags=[
+       {
+           <span class="hljs-string">'Key'</span>: <span class="hljs-string">'Name'</span>,
+           <span class="hljs-string">'Value'</span>: <span class="hljs-string">'23796349-TG'</span>
+       },
+   ]
+)
+tg_arn = response[<span class="hljs-string">'TargetGroups'</span>][<span class="hljs-number">0</span>][<span class="hljs-string">'TargetGroupArn'</span>]
+print(<span class="hljs-string">f"Target Group ARN: <span class="hljs-subst">{tg_arn}</span>"</span>)
+ 
+<span class="hljs-comment">#Register the created instance as a target in the target group</span>
+client.register_targets(
+   TargetGroupArn=tg_arn,
+   Targets=[
+       {<span class="hljs-string">'Id'</span>: inst_ID},
+   ]
+)
+
+<span class="hljs-comment">#Listener with HTTP and Port 80 forwarding</span>
+client.create_listener(
+   LoadBalancerArn=lb_arn,
+   Protocol=<span class="hljs-string">'HTTP'</span>,
+   Port=<span class="hljs-number">80</span>,
+   DefaultActions=[
+       {
+           <span class="hljs-string">'Type'</span>: <span class="hljs-string">'forward'</span>,
+           <span class="hljs-string">'TargetGroupArn'</span>: tg_arn
+       },
+   ]
+)
+ 
+print(<span class="hljs-string">"Application Load Balancer and listener successfully created. The instance was registered as a target"</span>)
+</div></code></pre>
+<ul>
+<li>The screenshots below show the ALB that was created:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6/lab6-14.png" alt="ALB" width="1259"/>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6-1w.png" alt="ALB1" width="1877"/>
+<h3 id="2-health-check">[2] Health check</h3>
+<ul>
+<li>By default health checks are fetched every 30 seconds.</li>
+<li>The screenshot below shows the Target group that was created and its health check settings:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6-2w.png" alt="TG" width="1878"/>
+<h3 id="3-access">[3] Access</h3>
+<ul>
+<li>To see if the ALB is working as intended, access the URL: <code>http://&lt;alb_dns_name&gt;/polls/</code>. In my case, it is <code>http://23796349-alb-1538659132.ap-northeast-w.elb.amazonaws.com/polls/</code>.</li>
+<li>The screenshot below shows the output that I got:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab6/lab6-3w.png" alt="ALBcheck" width="1919"/>
+<br>
+<p><strong>All resources that were created for the lab (<em>EC2 instance, ALB and TG</em>) were deleted using the AWS Console after the lab completion.</strong></p>
+<hr>
+<div style="page-break-after: always;"></div>
+<h1 id="lab-7">Lab 7</h1>
+<h3 id="create-an-ec2-instance">Create an EC2 instance</h3>
+<ul>
+<li>The EC2 instance required for this lab was created using the same methods used in <code>Lab 6</code> (<a href="#1-create-an-ec2-micro-instance-with-ubuntu-and-ssh-into-it">Refer here</a>).</li>
+</ul>
+<h3 id="install-and-configure-fabric">Install and configure Fabric</h3>
+<ul>
+<li>The following command can be used to install <code>fabric</code>:</li>
+</ul>
+<pre class="hljs"><code><div>pip install fabric
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the output of the command:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab7/lab7-1.png" alt="fabricinst" width="1248"/>
+<ul>
+<li>Once <code>fabric</code> is installed, we need to configure it. We can do this by creating a <strong>config</strong> file in the <code>~/.ssh</code> folder.</li>
+<li>The following content was added to the config file:</li>
+</ul>
+<pre class="hljs"><code><div>Host &lt;your EC2 instance name&gt;
+    Hostname &lt;your EC2 instance public IPv4 DNS&gt;
+    User ubuntu
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+    PasswordAuthentication no
+    IdentityFile &lt;path to your private key&gt;
+</div></code></pre>
+<ul>
+<li>The following screenshot shows the content that I added to my config file:<br>
+<em>NOTE: I copied my private key to the <code>~/.ssh</code> folder. Hence I haven't specified path for the same. Also I replaced the placeholders with the appropriate content.</em></li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab7/lab7-5.png" alt="fabriccon" width="1250"/>
+<ul>
+<li>To see if fabric has been configured the right way, connect to your instance using the following code:</li>
+</ul>
+<pre class="hljs"><code><div>python3
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> fabric <span class="hljs-keyword">import</span> Connection
+<span class="hljs-meta">&gt;&gt;&gt; </span>c = Connection(<span class="hljs-string">'&lt;your EC2 instance name&gt;'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>result = c.run(<span class="hljs-string">'uname -s'</span>)
+Linux
+&gt;&gt;&gt;
+</div></code></pre>
+<ul>
+<li>The screenshot below shows my attempt to connect to my instance:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab7/lab7-2.png" alt="fabriccon" width="1248"/>
+<h3 id="use-fabric-for-automation">Use Fabric for automation</h3>
+<ul>
+<li>The entirety of <code>Lab 6</code> steps in <a href="#set-up-an-ec2-instance">Set up an EC2 instance</a> and <a href="#set-up-django-inside-the-created-ec2-instance">Set up Django inside the created EC2 instance</a> has been automated with the following code:<br><br>
+Code referenced from <a href="https://docs.fabfile.org/en/2.0/">Fabric documention</a>.<br><br>
+<em>NOTE:<br>Refer to comments in the code to understand the implementation.<br>Note the usage of <code>run</code> and <code>sudo</code> functions, wherever <strong>su</strong> permissions were required <code>sudo</code> was used.<br>Appropriate number of <code>\</code> were used to escape special characters.<br>Full path to a file was always used.</em></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> fabric <span class="hljs-keyword">import</span> Connection, task
+ 
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">automate_setup_and_run</span><span class="hljs-params">()</span>:</span>
+
+    <span class="hljs-keyword">with</span> Connection(<span class="hljs-string">'23796349-vm'</span>) <span class="hljs-keyword">as</span> c:
+
+        print(<span class="hljs-string">'----------------------------------------'</span>)
+        print(<span class="hljs-string">'+----Installing necessary things-------+'</span>)
+        print(<span class="hljs-string">'----------------------------------------'</span>)
+
+        <span class="hljs-comment"># Installing python3 virtual environment and nginx</span>
+        c.sudo(<span class="hljs-string">"apt update"</span>)
+        c.sudo(<span class="hljs-string">"apt upgrade -y"</span>)
+        c.sudo(<span class="hljs-string">"apt install python3-pip -y"</span>)
+        c.sudo(<span class="hljs-string">"apt install python3-venv -y"</span>)
+        c.sudo(<span class="hljs-string">"apt install nginx -y"</span>)
+        
+        print(<span class="hljs-string">'-------------------------------------------'</span>)
+        print(<span class="hljs-string">'+----Setting up Virtual Environment-------+'</span>)
+        print(<span class="hljs-string">'-------------------------------------------'</span>)
+
+        <span class="hljs-comment"># Setup virtual environment</span>
+        c.run(<span class="hljs-string">"python3 -m venv myvenv"</span>)
+        c.run(<span class="hljs-string">"source myvenv/bin/activate"</span>)
+
+        print(<span class="hljs-string">'------------------------------'</span>)
+        print(<span class="hljs-string">'+----Installing django-------+'</span>)
+        print(<span class="hljs-string">'------------------------------'</span>)
+      
+        <span class="hljs-comment"># Installing Django within the virtual environment</span>
+        c.sudo(<span class="hljs-string">"pip install django"</span>)
+      
+        print(<span class="hljs-string">'------------------------------'</span>)
+        print(<span class="hljs-string">'+----Setting up django-------+'</span>)
+        print(<span class="hljs-string">'------------------------------'</span>)
+
+        <span class="hljs-comment"># Setting up Django project</span>
+        c.run(<span class="hljs-string">"django-admin startproject lab"</span>)
+        
+        print(<span class="hljs-string">'-------------------------------'</span>)
+        print(<span class="hljs-string">'+----Creating polls app-------+'</span>)
+        print(<span class="hljs-string">'-------------------------------'</span>)
+
+        <span class="hljs-comment"># Changing directory and creating polls app</span>
+        c.run(<span class="hljs-string">"cd lab &amp;&amp; python3 manage.py startapp polls"</span>)
+        
+        print(<span class="hljs-string">'------------------------------'</span>)
+        print(<span class="hljs-string">'+----Configuring nginx-------+'</span>)
+        print(<span class="hljs-string">'------------------------------'</span>)
+
+        <span class="hljs-comment"># Configure nginx</span>
+        c.run(<span class="hljs-string">"echo 'server {\n    listen 80 default_server;\n    listen [::]:80 default_server;\n\n    location / {\n        proxy_set_header X-Forwarded-Host $host;\n        proxy_set_header X-Real-IP $remote_addr;\n        proxy_pass http://127.0.0.1:8000;\n    }\n}' | sudo tee /etc/nginx/sites-enabled/default"</span>)
+        c.sudo(<span class="hljs-string">"nginx -t"</span>)
+        c.sudo(<span class="hljs-string">"service nginx restart"</span>)
+        
+        print(<span class="hljs-string">'-----------------------------------'</span>)
+        print(<span class="hljs-string">'+----Editing polls/views.py-------+'</span>)
+        print(<span class="hljs-string">'-----------------------------------'</span>)
+
+        <span class="hljs-comment"># Edit /polls/views.py</span>
+        c.run(<span class="hljs-string">"echo 'from django.http import HttpResponse\n\ndef index(request):\n    return HttpResponse(\"Hello, world.\")' | sudo tee /home/ubuntu/lab/polls/views.py"</span>)
+        
+        print(<span class="hljs-string">'----------------------------------'</span>)
+        print(<span class="hljs-string">'+----Editing polls/urls.py-------+'</span>)
+        print(<span class="hljs-string">'----------------------------------'</span>)
+
+        <span class="hljs-comment"># Edit /polls/urls.py</span>
+        c.run(<span class="hljs-string">"echo 'from django.urls import path\nfrom . import views\n\nurlpatterns = [\n    path(\"\", views.index, name=\"index\"),\n]' | sudo tee /home/ubuntu/lab/polls/urls.py"</span>)
+        
+        print(<span class="hljs-string">'--------------------------------'</span>)
+        print(<span class="hljs-string">'+----Editing lab/urls.py-------+'</span>)
+        print(<span class="hljs-string">'--------------------------------'</span>)
+
+        <span class="hljs-comment"># Edit /lab/urls.py</span>
+        c.run(<span class="hljs-string">"echo 'from django.urls import include, path\nfrom django.contrib import admin\n\nurlpatterns = [\n    path(\"polls/\", include(\"polls.urls\")),\n    path(\"admin/\", admin.site.urls),\n]' | sudo tee /home/ubuntu/lab/lab/urls.py"</span>)
+        
+        print(<span class="hljs-string">'---------------------------------------'</span>)
+        print(<span class="hljs-string">'+----Starting Development Server------+'</span>)
+        print(<span class="hljs-string">'---------------------------------------'</span>)
+
+        <span class="hljs-comment"># Starting development server</span>
+        c.run(<span class="hljs-string">"cd lab &amp;&amp; python3 manage.py runserver 0.0.0.0:8000 &amp;"</span>)
+ 
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    automate_setup_and_run()
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the end result (<em>web development server on port 8000</em>) of the code execution:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab7/lab7-3.png" alt="code_exe" width="1255"/>
+<ul>
+<li>The screenshot below shows the output when the <em>IP address of my EC2 instance is accessed through a web browser</em>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab7/lab7-4.png" alt="IP" width="1328"/>
+<br>
+<p><strong>All resources that were created for the lab (<em>EC2 instance</em>) were deleted using the AWS Console after the lab completion.</strong></p>
+<hr>
+<div style="page-break-after: always;"></div>
+<h1 id="lab-8">Lab 8</h1>
+<h2 id="install-and-run-jupyter-notebooks">Install and run jupyter notebooks</h2>
+<ul>
+<li>To install <strong>Jupyter Notebook</strong>, use the following command:</li>
+</ul>
+<pre class="hljs"><code><div>pip install notebook
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the output of the command:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8/lab8-1.png" alt="ntins" width="788"/>
+<ul>
+<li>To run Jupyter Notebook, use the following command:</li>
+</ul>
+<pre class="hljs"><code><div>jupyter notebook
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the command execution and its output:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8/lab8-2.png" alt="ntrun" width="1843"/>
+<h2 id="install-ipykernel">Install ipykernel</h2>
+<ul>
+<li>To install <strong>ipykernel</strong>, use the following command:</li>
+</ul>
+<pre class="hljs"><code><div>pip install ipykernel
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the output of the command:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8/lab8-3.png" alt="pyker" width="1405"/>
+<h2 id="run-hyperparameter-tuning-jobs">Run hyperparameter tuning jobs</h2>
+<ul>
+<li>I first downloaded the <a href="https://github.com/zhangzhics/CITS5503_Sem2/blob/master/Labs/src/LabAI.ipynb">LabAI.ipynb</a>.</li>
+<li>Then, I opened the file using Jupyter Notebook.</li>
+<li>I followed the instructions in the notebook.</li>
+<li>One of the instructions, asks us to create a S3 bucket and create appropriate objects(folders) in the same.</li>
+<li>I used the code below to create the bucket, which is a modified version of <strong>Lab 3</strong> code:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> boto3
+
+<span class="hljs-comment">#Bucket configuration</span>
+name = <span class="hljs-string">'23796349-lab8'</span> <span class="hljs-comment">#The name that was recommended in the notebook</span>
+bucket_config = {<span class="hljs-string">'LocationConstraint'</span>: <span class="hljs-string">'ap-northeast-2'</span>} <span class="hljs-comment">#My specified region</span>
+
+<span class="hljs-comment">#S3 client</span>
+s3 = boto3.client(<span class="hljs-string">"s3"</span>)
+
+<span class="hljs-keyword">try</span>:
+    s3.create_bucket(Bucket=name,CreateBucketConfiguration=bucket_config) <span class="hljs-comment">#create_bucket function is idempotent.</span>
+    response = s3.head_bucket(Bucket=name)
+    print(<span class="hljs-string">f"Bucket '<span class="hljs-subst">{name}</span>' created and exists."</span>)
+    print(response)
+<span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> error:
+    <span class="hljs-keyword">pass</span>
+
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the created S3 bucket:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8-1w.png" alt="bucket" width="1877"/>
+<ul>
+<li>Then, I used AWS Console to create the required objects (<strong>folders - sagemaker/23796349-hpo-xgboost-dm</strong>) in my S3 Bucket.</li>
+<li>The screenshot below shows the objects (folders) created using AWS Console:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8-3w.png" alt="objects" width="1876"/>
+<ul>
+<li>I made the necessary changes to the variables as instructed by the comments in the notebook. The screenhot below shows the changes I made:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8/lab8-5.png" alt="varchnge" width="1212"/>
+<ul>
+<li>I ran all the code blocks and the output of the <strong>final code block</strong> is shown in the screenshot below:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8/lab8-6.png" alt="finalcode" width="1212"/>
+<ul>
+<li>
+<p>The execution of all the code blocks and the final block resulted in the creation of objects(folders and files) in the bucket. This is the result of training the model and validating it.</p>
+</li>
+<li>
+<p>The screenshot below shows the content in the folder <strong>23796349-hpo-xgboost-dm</strong>:</p>
+</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8-4w.png" alt="2folder" width="1877"/>
+<ul>
+<li>The screenshot below shows the content in the folders <strong>train</strong> and <strong>validation</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8-5w.png" alt="trainvalid" width="1878"/>
+<ul>
+<li>The screenshot below shows the <strong>Hyperparameter Tuning Jobs</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8-6w.png" alt="hyp1" width="1877"/>
+<p><em>NOTE: <br>I encountered the Non-numeric type error, that is why you could see more than one hyperparameter tuning jobs.<br>To solve this problem, I converted the Non-numeric data to Numeric data (True/False to 1/0 respectively).<br><br><strong>The screenshot below shows the code block that contains the code to convert Non-numeric data to Numeric data before uploading to the S3 bucket:</strong></em></p>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8/lab8-7.png" alt="codeblock" width="1212"/>
+<pre class="hljs"><code><div><span class="hljs-comment">#Converting True/False to 1/0 respectively</span>
+
+<span class="hljs-comment">#train data</span>
+train_df = pd.read_csv(<span class="hljs-string">'train.csv'</span>, header=<span class="hljs-literal">None</span>)
+train_df = train_df.astype(int)
+train_df.to_csv(<span class="hljs-string">'train.csv'</span>, index=<span class="hljs-literal">False</span>, header=<span class="hljs-literal">False</span>)
+
+<span class="hljs-comment">#validation data</span>
+valid_df = pd.read_csv(<span class="hljs-string">'validation.csv'</span>, header=<span class="hljs-literal">None</span>)
+valid_df = valid_df.astype(int)
+valid_df.to_csv(<span class="hljs-string">'validation.csv'</span>, index=<span class="hljs-literal">False</span>, header=<span class="hljs-literal">False</span>)
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the details (the associated training jobs) of <strong>Successful Tunning job</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8-7w.png" alt="hyp2" width="1878"/>
+<ul>
+<li>The screenshot below shows the contents of the <strong>output</strong> folder:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8-8w.png" alt="o/p" width="1877"/>
+<ul>
+<li>The screenshot below shows the <strong>models</strong> created:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab8/lab8-9w.png" alt="models" width="1917"/>
+<ul>
+<li>I have linked my Jupyter Notebook <a href="https://uniwa-my.sharepoint.com/:u:/g/personal/23796349_student_uwa_edu_au/EdopF5oudNNMmqWQVyyZCKcBroiHeJGa3dmVYp2AJwnBdQ?e=cdQfQt">here</a>.</li>
+</ul>
+<p><strong>All resources that were created for the lab (<em>S3 Bucket and the objects in it</em>) were deleted using the AWS Console after the lab completion.</strong></p>
+<hr>
+<div style="page-break-after: always;"></div>
+<h1 id="lab-9">Lab 9</h1>
+<h2 id="aws-comprehend">AWS Comprehend</h2>
+<h3 id="detect-languages-from-text">Detect Languages from text</h3>
+<h4 id="1-modify-the-code-above">[1] Modify the code above</h4>
+<ul>
+<li>The code given in the lab sheet was modified to display output in the specified format.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> boto3
+<span class="hljs-keyword">import</span> langcodes
+
+<span class="hljs-comment">#Sample</span>
+sentence = <span class="hljs-string">"Hi my name is John. Nice to meet you!"</span>
+
+client = boto3.client(<span class="hljs-string">'comprehend'</span>)
+response = client.detect_dominant_language(Text=sentence)
+lng_code = response[<span class="hljs-string">'Languages'</span>][<span class="hljs-number">0</span>][<span class="hljs-string">'LanguageCode'</span>]
+score = response[<span class="hljs-string">'Languages'</span>][<span class="hljs-number">0</span>][<span class="hljs-string">'Score'</span>]
+lng_detected = langcodes.get(lng_code).language_name()
+print(<span class="hljs-string">f"For the sentence:\n\"<span class="hljs-subst">{sentence}</span>\"\n"</span>)
+print(<span class="hljs-string">"Detection"</span>)
+print(<span class="hljs-string">"---------"</span>)
+print(<span class="hljs-string">f"<span class="hljs-subst">{lng_detected}</span> detected with <span class="hljs-subst">{int(score*<span class="hljs-number">100</span>)}</span>% confidence!"</span>)
+</div></code></pre>
+<ul>
+<li>To do this, I had to change the <em>Language Code</em> returned by the <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/client/detect_dominant_language.html"><em>detect_dominant_language</em></a> method to the respective full form (eg. &quot;en&quot; should be converted to &quot;English&quot;).</li>
+<li>I searched and found that there is a python library called <a href="https://pypi.org/project/langcodes/">langcodes</a> that returns the full language name given a language code.</li>
+<li>I used the following command to install the library:</li>
+</ul>
+<pre class="hljs"><code><div>pip install langcodes
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the output of the <strong>modified code</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/2.png" alt="modify" width="1598"/>
+<h4 id="2-test-your-code-with-other-languages">[2] Test your code with other languages</h4>
+<ul>
+<li>The next task was to test the modified code with other lanuages.</li>
+<li>I created a list that contains the text provided in the Lab sheet as its elements.</li>
+<li>The code below shows my implementation:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> boto3
+<span class="hljs-keyword">import</span> langcodes
+
+<span class="hljs-comment">#Sample</span>
+<span class="hljs-comment">#sentence = "Hi my name is John. Nice to meet you!"</span>
+
+<span class="hljs-comment">#Test text provided in Lab Sheet</span>
+test = [<span class="hljs-string">"The French Revolution was a period of social and political upheaval in France and its colonies beginning in 1789 and ending in 1799."</span>,
+        <span class="hljs-string">"El Quijote es la obra más conocida de Miguel de Cervantes Saavedra. Publicada su primera parte con el título de El ingenioso hidalgo don Quijote de la Mancha a comienzos de 1605, es una de las obras más destacadas de la literatura española y la literatura universal, y una de las más traducidas. En 1615 aparecería la segunda parte del Quijote de Cervantes con el título de El ingenioso caballero don Quijote de la Mancha."</span>,
+        <span class="hljs-string">"Moi je n'étais rien Et voilà qu'aujourd'hui Je suis le gardien Du sommeil de ses nuits Je l'aime à mourir Vous pouvez détruire Tout ce qu'il vous plaira Elle n'a qu'à ouvrir L'espace de ses bras Pour tout reconstruire Pour tout reconstruire Je l'aime à mourir"</span>,
+        <span class="hljs-string">"L'amor che move il sole e l'altre stelle."</span>]
+
+<span class="hljs-keyword">for</span> sentence <span class="hljs-keyword">in</span> test:
+    client = boto3.client(<span class="hljs-string">'comprehend'</span>)
+    response = client.detect_dominant_language(Text=sentence)
+    lng_code = response[<span class="hljs-string">'Languages'</span>][<span class="hljs-number">0</span>][<span class="hljs-string">'LanguageCode'</span>]
+    score = response[<span class="hljs-string">'Languages'</span>][<span class="hljs-number">0</span>][<span class="hljs-string">'Score'</span>]
+    lng_detected = langcodes.get(lng_code).language_name()
+    print(<span class="hljs-string">f"For the sentence:\n\"<span class="hljs-subst">{sentence}</span>\"\n"</span>)
+    print(<span class="hljs-string">"Detection"</span>)
+    print(<span class="hljs-string">"---------"</span>)
+    print(<span class="hljs-string">f"<span class="hljs-subst">{lng_detected}</span> detected with <span class="hljs-subst">{int(score*<span class="hljs-number">100</span>)}</span>% confidence!"</span>)
+    print(<span class="hljs-string">"\n"</span>)
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the <strong>ouput</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/3.png" alt="modify1" width="1598"/>
+<p><em><strong>NOTE</strong>: I used the <strong>detect_dominant_language</strong> method to get and feed the appropriate language code in the following sections.</em></p>
+<h3 id="analyze-sentiment">Analyze sentiment</h3>
+<ul>
+<li>The following code shows the implementation of the <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/client/detect_sentiment.html"><em>detect_sentiment</em></a> method to return the sentiment of a given sentence.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> boto3
+
+<span class="hljs-comment">#Test provided in Lab Sheet</span>
+test = [<span class="hljs-string">"The French Revolution was a period of social and political upheaval in France and its colonies beginning in 1789 and ending in 1799."</span>,
+        <span class="hljs-string">"El Quijote es la obra más conocida de Miguel de Cervantes Saavedra. Publicada su primera parte con el título de El ingenioso hidalgo don Quijote de la Mancha a comienzos de 1605, es una de las obras más destacadas de la literatura española y la literatura universal, y una de las más traducidas. En 1615 aparecería la segunda parte del Quijote de Cervantes con el título de El ingenioso caballero don Quijote de la Mancha."</span>,
+        <span class="hljs-string">"Moi je n'étais rien Et voilà qu'aujourd'hui Je suis le gardien Du sommeil de ses nuits Je l'aime à mourir Vous pouvez détruire Tout ce qu'il vous plaira Elle n'a qu'à ouvrir L'espace de ses bras Pour tout reconstruire Pour tout reconstruire Je l'aime à mourir"</span>,
+        <span class="hljs-string">"L'amor che move il sole e l'altre stelle."</span>]
+
+<span class="hljs-keyword">for</span> sentence <span class="hljs-keyword">in</span> test:
+    client = boto3.client(<span class="hljs-string">'comprehend'</span>)
+    response_lng = client.detect_dominant_language(Text=sentence)
+    lng_code = response_lng[<span class="hljs-string">'Languages'</span>][<span class="hljs-number">0</span>][<span class="hljs-string">'LanguageCode'</span>]
+    response_sent = client.detect_sentiment(Text=sentence, LanguageCode=lng_code)
+    sentiment = response_sent[<span class="hljs-string">'Sentiment'</span>]
+    score = response_sent[<span class="hljs-string">'SentimentScore'</span>][sentiment.capitalize()]
+    print(<span class="hljs-string">f"For \"<span class="hljs-subst">{sentence}</span>\"\n\nThe sentiment detected is <span class="hljs-subst">{sentiment.capitalize()}</span> with <span class="hljs-subst">{int(score*<span class="hljs-number">100</span>)}</span>% confidence!"</span>)
+    print(<span class="hljs-string">"\n"</span>)
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the <strong>output</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/4.png" alt="sent" width="1260"/>
+<h3 id="detect-entities">Detect entities</h3>
+<ul>
+<li>The following code shows the implementation of <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/client/detect_entities.html"><em>detect_entities</em></a> method to return the entities found in a given sentence.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> boto3
+
+<span class="hljs-comment">#Test provided in Lab Sheet</span>
+test = [<span class="hljs-string">"The French Revolution was a period of social and political upheaval in France and its colonies beginning in 1789 and ending in 1799."</span>,
+        <span class="hljs-string">"El Quijote es la obra más conocida de Miguel de Cervantes Saavedra. Publicada su primera parte con el título de El ingenioso hidalgo don Quijote de la Mancha a comienzos de 1605, es una de las obras más destacadas de la literatura española y la literatura universal, y una de las más traducidas. En 1615 aparecería la segunda parte del Quijote de Cervantes con el título de El ingenioso caballero don Quijote de la Mancha."</span>,
+        <span class="hljs-string">"Moi je n'étais rien Et voilà qu'aujourd'hui Je suis le gardien Du sommeil de ses nuits Je l'aime à mourir Vous pouvez détruire Tout ce qu'il vous plaira Elle n'a qu'à ouvrir L'espace de ses bras Pour tout reconstruire Pour tout reconstruire Je l'aime à mourir"</span>,
+        <span class="hljs-string">"L'amor che move il sole e l'altre stelle."</span>]
+
+<span class="hljs-keyword">for</span> sentence <span class="hljs-keyword">in</span> test:
+    client = boto3.client(<span class="hljs-string">'comprehend'</span>)
+    response_lng = client.detect_dominant_language(Text=sentence)
+    lng_code = response_lng[<span class="hljs-string">'Languages'</span>][<span class="hljs-number">0</span>][<span class="hljs-string">'LanguageCode'</span>]
+    reponse_ent = client.detect_entities(Text=sentence, LanguageCode=lng_code)
+    entities = reponse_ent[<span class="hljs-string">'Entities'</span>]
+    print(<span class="hljs-string">f"In the sentence:\n\"<span class="hljs-subst">{sentence}</span>\"\n"</span>)
+    print(<span class="hljs-string">"Detection"</span>)
+    print(<span class="hljs-string">"---------"</span>)
+    <span class="hljs-keyword">if</span> len(entities) != <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">for</span> entity <span class="hljs-keyword">in</span> entities:
+            print(<span class="hljs-string">f"Entity: <span class="hljs-subst">{entity[<span class="hljs-string">'Text'</span>]}</span> | Type: <span class="hljs-subst">{entity[<span class="hljs-string">'Type'</span>]}</span> | Confidence: <span class="hljs-subst">{int(entity[<span class="hljs-string">'Score'</span>]*<span class="hljs-number">100</span>)}</span>%"</span>)
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">"None"</span>)
+    print(<span class="hljs-string">"\n"</span>)
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the <strong>output</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/5.png" alt="ent" width="1598"/>
+<ul>
+<li><strong>Answer to lab sheet question</strong>: Entities can be described as specific pieces of information that are found and categorized in a given text. (eg. Location, Dates, Events, People, etc.)</li>
+</ul>
+<h3 id="detect-keyphrases">Detect keyphrases</h3>
+<ul>
+<li>The following code shows the implementation of <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/client/detect_key_phrases.html"><em>detect_key_phrases</em></a> method to return the keyphrases found in a given sentence.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> boto3
+
+<span class="hljs-comment">#Test provided in Lab Sheet</span>
+test = [<span class="hljs-string">"The French Revolution was a period of social and political upheaval in France and its colonies beginning in 1789 and ending in 1799."</span>,
+        <span class="hljs-string">"El Quijote es la obra más conocida de Miguel de Cervantes Saavedra. Publicada su primera parte con el título de El ingenioso hidalgo don Quijote de la Mancha a comienzos de 1605, es una de las obras más destacadas de la literatura española y la literatura universal, y una de las más traducidas. En 1615 aparecería la segunda parte del Quijote de Cervantes con el título de El ingenioso caballero don Quijote de la Mancha."</span>,
+        <span class="hljs-string">"Moi je n'étais rien Et voilà qu'aujourd'hui Je suis le gardien Du sommeil de ses nuits Je l'aime à mourir Vous pouvez détruire Tout ce qu'il vous plaira Elle n'a qu'à ouvrir L'espace de ses bras Pour tout reconstruire Pour tout reconstruire Je l'aime à mourir"</span>,
+        <span class="hljs-string">"L'amor che move il sole e l'altre stelle."</span>]
+
+<span class="hljs-keyword">for</span> sentence <span class="hljs-keyword">in</span> test:
+    client = boto3.client(<span class="hljs-string">'comprehend'</span>)
+    response_lng = client.detect_dominant_language(Text=sentence)
+    lng_code = response_lng[<span class="hljs-string">'Languages'</span>][<span class="hljs-number">0</span>][<span class="hljs-string">'LanguageCode'</span>]
+    response_kpd = client.detect_key_phrases(Text=sentence, LanguageCode=lng_code)
+    keyPhrases = response_kpd[<span class="hljs-string">'KeyPhrases'</span>]
+    print(<span class="hljs-string">f"In the sentence:\n\"<span class="hljs-subst">{sentence}</span>\"\n"</span>)
+    print(<span class="hljs-string">"Detection"</span>)
+    print(<span class="hljs-string">"---------"</span>)
+    <span class="hljs-keyword">for</span> kp <span class="hljs-keyword">in</span> keyPhrases:
+        print(<span class="hljs-string">f"Keyphrase: <span class="hljs-subst">{kp[<span class="hljs-string">'Text'</span>]}</span> | Confidence: <span class="hljs-subst">{int(kp[<span class="hljs-string">'Score'</span>]*<span class="hljs-number">100</span>)}</span>%"</span>)
+    print(<span class="hljs-string">"\n"</span>)
+</div></code></pre>
+<ul>
+<li>The screenshots below show the <strong>output</strong>:</li>
+</ul>
+<p><img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/6.png" alt="kp" width="1598"/><br>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/6a.png" alt="kp1" width="1598"/></p>
+<ul>
+<li><strong>Answer to lab sheet question</strong>: Keyphrases can be described as crucial expressions that give the main idea of a given text.</li>
+</ul>
+<h3 id="detect-syntaxes">Detect syntaxes</h3>
+<ul>
+<li>The following code shows the implementation of <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/client/detect_syntax.html"><em>detect_syntax</em></a> method to return the syntaxes found in a given sentence.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> boto3
+
+<span class="hljs-comment">#Test provided in Lab Sheet</span>
+test = [<span class="hljs-string">"The French Revolution was a period of social and political upheaval in France and its colonies beginning in 1789 and ending in 1799."</span>,
+        <span class="hljs-string">"El Quijote es la obra más conocida de Miguel de Cervantes Saavedra. Publicada su primera parte con el título de El ingenioso hidalgo don Quijote de la Mancha a comienzos de 1605, es una de las obras más destacadas de la literatura española y la literatura universal, y una de las más traducidas. En 1615 aparecería la segunda parte del Quijote de Cervantes con el título de El ingenioso caballero don Quijote de la Mancha."</span>,
+        <span class="hljs-string">"Moi je n'étais rien Et voilà qu'aujourd'hui Je suis le gardien Du sommeil de ses nuits Je l'aime à mourir Vous pouvez détruire Tout ce qu'il vous plaira Elle n'a qu'à ouvrir L'espace de ses bras Pour tout reconstruire Pour tout reconstruire Je l'aime à mourir"</span>,
+        <span class="hljs-string">"L'amor che move il sole e l'altre stelle."</span>]
+
+<span class="hljs-keyword">for</span> sentence <span class="hljs-keyword">in</span> test:
+    client = boto3.client(<span class="hljs-string">'comprehend'</span>)
+    response_lng = client.detect_dominant_language(Text=sentence)
+    lng_code = response_lng[<span class="hljs-string">'Languages'</span>][<span class="hljs-number">0</span>][<span class="hljs-string">'LanguageCode'</span>]
+    response_syntx = client.detect_syntax(Text=sentence, LanguageCode=lng_code)
+    syntxTokens = response_syntx[<span class="hljs-string">'SyntaxTokens'</span>]
+    print(<span class="hljs-string">f"In the sentence:\n\"<span class="hljs-subst">{sentence}</span>\"\n"</span>)
+    print(<span class="hljs-string">"Detection"</span>)
+    print(<span class="hljs-string">"---------"</span>)
+    <span class="hljs-keyword">for</span> tk <span class="hljs-keyword">in</span> syntxTokens:
+        print(<span class="hljs-string">f"Word: <span class="hljs-subst">{tk[<span class="hljs-string">'Text'</span>]}</span> | Part of Speech: <span class="hljs-subst">{tk[<span class="hljs-string">'PartOfSpeech'</span>][<span class="hljs-string">'Tag'</span>]}</span> | Confidence: <span class="hljs-subst">{int(tk[<span class="hljs-string">'PartOfSpeech'</span>][<span class="hljs-string">'Score'</span>]*<span class="hljs-number">100</span>)}</span>%"</span>)
+    print(<span class="hljs-string">"\n"</span>)
+</div></code></pre>
+<ul>
+<li>The screenshots below show the <strong>output</strong>:</li>
+</ul>
+<p><img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/7.png" alt="syn" width="1596"/><br>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/7a.png" alt="syn1" width="1596"/><br>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/7b.png" alt="syn2" width="1596"/><br>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/7c.png" alt="syn3" width="1596"/></p>
+<ul>
+<li><strong>Answer to lab sheet question</strong>: Syntaxes can be described as each individual word in a given text that can be used to identify the grammatical structure of the sentences in the text.</li>
+</ul>
+<h2 id="aws-rekognition">AWS Rekognition</h2>
+<h3 id="add-images">Add images</h3>
+<ul>
+<li>First, I downloaded the required images to complete the task in this section.</li>
+<li>These are the images that I chose.</li>
+<li>The image <strong>urban.jpg</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/urban.jpg" alt="urban" width="2592"/>
+<ul>
+<li>The image <strong>beach.jpg</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/beach.jpg" alt="beach" width="1280"/>
+<ul>
+<li>The image <strong>faces.jpg</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/faces.jpg" alt="faces" width="1300"/>
+<ul>
+<li>The image <strong>text.jpg</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/text.jpg" alt="text" width="283"/>
+<ul>
+<li>The following code creates a S3 bucket named <strong>23796349-lab9</strong> in the region that I am mapped to (ap-notheast-2) and uploads the four images, it is a modification of code from <code>Lab 5</code>:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> boto3
+<span class="hljs-keyword">import</span> os
+
+<span class="hljs-comment">#Bucket configuration</span>
+name = <span class="hljs-string">'23796349-lab9'</span>
+bucket_config = {<span class="hljs-string">'LocationConstraint'</span>: <span class="hljs-string">'ap-northeast-2'</span>} 
+
+<span class="hljs-comment">#S3 client</span>
+s3 = boto3.client(<span class="hljs-string">"s3"</span>)
+
+<span class="hljs-comment">#File paths</span>
+file_paths = [
+    <span class="hljs-string">'/home/cits5503/lab9/beach.jpg'</span>,
+    <span class="hljs-string">'/home/cits5503/lab9/faces.jpg'</span>,
+    <span class="hljs-string">'/home/cits5503/lab9/urban.jpg'</span>,
+    <span class="hljs-string">'/home/cits5503/lab9/text.jpg'</span>
+]
+
+<span class="hljs-keyword">try</span>:
+    s3.create_bucket(Bucket=name,CreateBucketConfiguration=bucket_config) <span class="hljs-comment">#create_bucket function is idempotent.</span>
+    response = s3.head_bucket(Bucket=name)
+    print(<span class="hljs-string">f"Bucket '<span class="hljs-subst">{name}</span>' created and exists."</span>)
+    print(response)
+<span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> error:
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-keyword">for</span> file_path <span class="hljs-keyword">in</span> file_paths:
+    file_name = os.path.basename(file_path)
+    s3.upload_file(file_path, bucket_name, file_name)
+    print(<span class="hljs-string">f'Uploaded <span class="hljs-subst">{file_name}</span> to <span class="hljs-subst">{bucket_name}</span>'</span>)
+</div></code></pre>
+<h3 id="test-aws-rekognition">Test AWS rekognition</h3>
+<ul>
+<li>The code below shows the implementation of <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html">detect_labels</a>, <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html">detect_moderation_labels</a>, <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html">detect_faces</a>, and <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectText.html">detect_text</a> methods to return appropriate labels and their confidence level.</li>
+<li>I used argument parser to have the choice to run only the required method.</li>
+<li>The user has to specify two options, the method they want to use and the photo they want to use that is present in their S3 bucket.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> boto3,argparse
+
+<span class="hljs-comment">#Constants</span>
+bucket = <span class="hljs-string">'23796349-lab9'</span>
+client = boto3.client(<span class="hljs-string">'rekognition'</span>)
+
+<span class="hljs-comment"># Argument Parsing</span>
+parser = argparse.ArgumentParser(description=<span class="hljs-string">'AWS_Rekognition_options'</span>)
+parser.add_argument(<span class="hljs-string">'--labelrecog'</span>, <span class="hljs-string">'-l'</span>, action=<span class="hljs-string">'store_true'</span>, help=<span class="hljs-string">'Label Recognition'</span>)
+parser.add_argument(<span class="hljs-string">'--imgmoderation'</span>, <span class="hljs-string">'-i'</span>, action=<span class="hljs-string">'store_true'</span>, help=<span class="hljs-string">'Image Moderation'</span>)
+parser.add_argument(<span class="hljs-string">'--faceanalyse'</span>, <span class="hljs-string">'-f'</span>, action=<span class="hljs-string">'store_true'</span>, help=<span class="hljs-string">'Facial Analysis'</span>)
+parser.add_argument(<span class="hljs-string">'--exttxt'</span>, <span class="hljs-string">'-e'</span>, action=<span class="hljs-string">'store_true'</span>, help=<span class="hljs-string">'Extract Text'</span>)
+parser.add_argument(<span class="hljs-string">'--photo'</span>, <span class="hljs-string">'-p'</span>, required=<span class="hljs-literal">True</span>, help=<span class="hljs-string">'Photo name with extension present in your S3 bucket'</span>)
+args = parser.parse_args()
+
+<span class="hljs-comment">#Label Recognition</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">detectLabels</span><span class="hljs-params">(photo_name)</span>:</span>
+    reponse = client.detect_labels(Image={<span class="hljs-string">'S3Object'</span>:{<span class="hljs-string">'Bucket'</span>:bucket,<span class="hljs-string">'Name'</span>:photo_name}})
+    print(<span class="hljs-string">"Detection"</span>)
+    print(<span class="hljs-string">"---------"</span>)
+    <span class="hljs-keyword">for</span> label <span class="hljs-keyword">in</span> reponse[<span class="hljs-string">'Labels'</span>]:
+        print(<span class="hljs-string">f"Label: <span class="hljs-subst">{label[<span class="hljs-string">'Name'</span>]}</span> | Confidence: <span class="hljs-subst">{int(label[<span class="hljs-string">'Confidence'</span>])}</span>%"</span>)
+
+<span class="hljs-comment">#Image Moderation</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">imgMod</span><span class="hljs-params">(photo_name)</span>:</span>
+    reponse = client.detect_moderation_labels(Image={<span class="hljs-string">'S3Object'</span>:{<span class="hljs-string">'Bucket'</span>:bucket,<span class="hljs-string">'Name'</span>:photo_name}})
+    print(<span class="hljs-string">"Detection"</span>)
+    print(<span class="hljs-string">"---------"</span>)
+    <span class="hljs-keyword">for</span> label <span class="hljs-keyword">in</span> reponse[<span class="hljs-string">'ModerationLabels'</span>]:
+        print(<span class="hljs-string">f"Label: <span class="hljs-subst">{label[<span class="hljs-string">'Name'</span>]}</span> | Confidence: <span class="hljs-subst">{int(label[<span class="hljs-string">'Confidence'</span>])}</span>%"</span>)
+
+<span class="hljs-comment">#Facial Analysis</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">analyFace</span><span class="hljs-params">(photo_name)</span>:</span>
+    response = client.detect_faces(Image={<span class="hljs-string">'S3Object'</span>:{<span class="hljs-string">'Bucket'</span>:bucket,<span class="hljs-string">'Name'</span>:photo_name}}, Attributes=[<span class="hljs-string">'ALL'</span>])
+    faceCount = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> face <span class="hljs-keyword">in</span> response[<span class="hljs-string">'FaceDetails'</span>]:
+        faceCount+=<span class="hljs-number">1</span>
+        print(<span class="hljs-string">"Face Number: "</span>+ str(faceCount))
+        print(<span class="hljs-string">"Detection"</span>)
+        print(<span class="hljs-string">"---------"</span>)
+        print(<span class="hljs-string">"Gender: "</span>+face[<span class="hljs-string">'Gender'</span>][<span class="hljs-string">'Value'</span>]+<span class="hljs-string">" | Confidence: "</span>+str(int(face[<span class="hljs-string">'Gender'</span>][<span class="hljs-string">'Confidence'</span>]))+<span class="hljs-string">"%"</span>)
+        print(<span class="hljs-string">"Age Range (years): "</span>+str(face[<span class="hljs-string">'AgeRange'</span>][<span class="hljs-string">'Low'</span>])+<span class="hljs-string">" to "</span>+str(face[<span class="hljs-string">'AgeRange'</span>][<span class="hljs-string">'High'</span>]))
+        print(<span class="hljs-string">"Glasses: "</span>+str(face[<span class="hljs-string">'Eyeglasses'</span>][<span class="hljs-string">'Value'</span>])+<span class="hljs-string">" | Confidence: "</span>+str(int(face[<span class="hljs-string">'Eyeglasses'</span>][<span class="hljs-string">'Confidence'</span>]))+<span class="hljs-string">"%"</span>)
+        print(<span class="hljs-string">"------------------------------------------------------------------------------"</span>)
+
+<span class="hljs-comment">#Extract Text</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">extText</span><span class="hljs-params">(photo_name)</span>:</span>
+    response = client.detect_text(Image={<span class="hljs-string">'S3Object'</span>:{<span class="hljs-string">'Bucket'</span>:bucket,<span class="hljs-string">'Name'</span>:photo_name}})
+    print(<span class="hljs-string">"Detection"</span>)
+    print(<span class="hljs-string">"---------"</span>)
+    <span class="hljs-keyword">for</span> text <span class="hljs-keyword">in</span> response[<span class="hljs-string">'TextDetections'</span>]:
+        print(<span class="hljs-string">f"Text detected: <span class="hljs-subst">{text[<span class="hljs-string">'DetectedText'</span>]}</span> | Confidence: <span class="hljs-subst">{int(text[<span class="hljs-string">'Confidence'</span>])}</span>%"</span>)
+
+<span class="hljs-comment">#Calling appropriate function based on the option specified</span>
+<span class="hljs-keyword">if</span> args.labelrecog:
+    detectLabels(args.photo)
+
+<span class="hljs-keyword">if</span> args.imgmoderation:
+    imgMod(args.photo)
+
+<span class="hljs-keyword">if</span> args.faceanalyse:
+    analyFace(args.photo)
+
+<span class="hljs-keyword">if</span> args.exttxt:
+    extText(args.photo)
+</div></code></pre>
+<ul>
+<li>The screenshot below shows the output of <strong>Label Recognition</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/8.png" alt="lbl" width="1596"/>
+<ul>
+<li>The screenshot below shows the output of <strong>Image Moderation</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/9.png" alt="imgm" width="1596"/>
+<ul>
+<li>The screenshot below shows the output of <strong>Facial Analysis</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/10.png" alt="fa" width="1596"/>
+<ul>
+<li>The screenshot below shows the output of <strong>Extract Text</strong>:</li>
+</ul>
+<img src="C:/Users/adhar/Desktop/sem4/CITS5503 - Cloud Computing/lab/lab9/11.png" alt="et" width="1596"/>
+<p><strong>All resources that were created for the lab (<em>S3 Bucket and the objects in it</em>) were deleted using the AWS Console after the lab completion.</strong></p>
+<hr>
+<div style="page-break-after: always;"></div>
+
+</body>
+</html>
