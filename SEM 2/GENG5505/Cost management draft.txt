@@ -1,0 +1,24 @@
+The project was completed for $828 million, the proposed budget was only $729 million, with almost $100 million going over budget. The stage 1 works of the project were later modified to include below ground works, a boundary adjustment and modifications to the landscaping requirements. On top of this, COVID-19 extended the project timeline through several issues such as increasing the outside of office hours work. Remediations for these issues were aprroved swiftly without proper analysis as there was a lot of pressure from the stakeholders to deliver the results on time. This clearly shows the lack of assessing project progress and performance over time. EVM (Earned Value Management) can be used to mitigate this, helping to predict the future and adjust costs accordingly.
+
+Earned value is a measure of performance (progress) in terms of scope,schedule and budget metrics (and their implications) (Hartley, 2018). There three important metrics in EVM, planned value(PV), earned value(EV) and actual costs(AC). 'PV is the estimated cost of the scheduled work, EV is the value of the work performed to date, indicating what amount of the budget has been earned, AC are the invoiced costs incurred in performing the completed work to date, measuring the costs incurred in delivering the amount of completed work.'(Hartley, 2018). An example of EVM analysis is shown below:
+
+Let's assume that a project is to be completed in 12 months or four quarters and the budget at completion (BAC) is $729 million. 
+
+So, the planned value of the project at 3 months (quarter - I) would be $729 million * 25% = $182.25 million.
+
+Let's assume that the actual cost at the end of 3 months to be $200 million.
+
+Let's assume that a certain discrepancy from the estimate occured. This means that at the end of 3 months, the work that was supposed to be completed (25%) wasn't. Assuming that only 24.5% of the work of completed,
+
+Corresponding earned value would be $729 million * 24.5% = $178.61 million. Fig. shows this in a graphical manner.
+
+Analysing this scenario, we can infer that that there's a clear indication of over budget and a significant delay in the project as the planned value at 3 months was clearly not met. Based on this, the budget and work plan for quarter-II could be adjust so that the extra cost and delays could be avoided.
+
+We can extend this initial analysis further by introducing variance analysis and performance indexes. 
+
+Schedule and cost variance can be inferred as the divergence from the initial planned schedule and budget, respectively. A positive value in either case indicates that we are ahead of schedule or under budget, respectively, and the opposite for a negative value. Similarly, for schedule and cost performance indices, a value above one indicates more work was completed than planned and cost under-runs for completed work respectively and the opposite for a value below one. Fig. and fig. show these in a graphical representation.
+
+For explanation purposes, the analysis is extended to plan for quarter - IV and visualized in fig. with the above data.
+
+If the SFS redevelopment team had to plan for quarter-IV based on this example, for every $1 invested they have to atleast complete $1.33 of scope to restore the original budget. In a real world scenario, this would be impossible to achieve. But had this analysis been done for quarter - I and adapted for quarter - II, the project could possibly be completed with the original budget.
+
