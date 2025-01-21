@@ -1,0 +1,24 @@
+set electric-blanket to 275 K
+set electric-blanket to 275 K when current-temperature less-than 300 K
+turn oven on until 08:00 pm
+set electric-blanket to 400 K when current-temperature greater-than 295 K until 10:00 pm
+set thermostat to 300 K until 10:00 pm when current-temperature greater-than 295 K
+set electric-blanket to 275 K when current-temperature more-than 300 K
+set oven to 300 K when current-temperature 1295 K
+set oven to 300 K when greater-than 295 K
+set oven to 300 K when current-temperature greater-than 295
+set oven to 300 K when current-temperature greater-than K
+set oven to 290 K when
+turn lamp on until 25:10 pm
+turn lamp on until 23:79 am
+turn lamp on until 03:79 pm
+turn lamp on until 3:49 pm
+turn lamp on until 03:9 pm
+turn lamp off until :25 am
+turn lamp off until 01: pm
+turn lamp off until 00:25
+turn lamp off until am
+turn lamp on until
+turn lamp on until 08:00 pm until 10:00 pm
+
+Assumption: location is set to "living-room".

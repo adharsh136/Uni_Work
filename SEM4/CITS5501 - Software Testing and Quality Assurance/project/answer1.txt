@@ -1,0 +1,25 @@
+<augmented_command> ::= <command> <when_condition>? <until_condition>?
+
+<when_condition> ::= "when" <current_temperature> <comparator> <target_temperature>
+
+<until_condition> ::= "until" <time_condition>
+
+<current_temperature> ::= "current-temperature"
+
+<comparator> ::= "less-than" | "greater-than" | "equal-to"
+
+<target_temperature> ::= <number> "K"
+
+<time_condition> ::= <hour> ":" <minute> " " <meridiem_indicators>
+
+<hour> ::= "0"[1-9] | "1"[0-2] | <invalid_hour>
+
+<minute> ::= "0"[0-9] | [1-5][0-9] | <invalid_minute>
+
+<meridiem_indicators> ::= "am" | "pm"
+
+<invalid_hour> ::= "1"[3-9] | [2-9][0-9]
+
+<invalid_minute> ::= "6"[0-9] | [7-9][0-9]
+
+Understanding and Assumption: My interpretation is that only temperature conditions can be followed after 'when' and only time conditions by 'until' and I think they would sound odd otherwise. For example, "master-bedroom set electric-blanket to 400 K when 10:00 pm" or "master-bedroom set electric-blanket to 400 K until current-temperature less-than 300 K". My assumption is the "<number>" non-terminal that I defined in the non-terminal "<target-temperature>" is the same "<number>" non-terminal present in Domolect 1.7, hence I have not provided its definition.
