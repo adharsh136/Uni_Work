@@ -1,0 +1,299 @@
+CREATE TABLE PhoneModel (
+  modelNumber TEXT,
+  modelName TEXT,
+  storage INTEGER,
+  colour TEXT,
+  baseCost REAL,
+  dailyCost REAL,
+  PRIMARY KEY(modelNumber,modelName)
+);
+
+CREATE TABLE Customer (
+  customerId INTEGER PRIMARY KEY,
+  customerName TEXT,
+  customerEmail TEXT
+);
+
+CREATE TABLE Phone (
+  modelNumber TEXT,
+  modelName TEXT,
+  IMEI TEXT PRIMARY KEY CHECK (((substr(IMEI,1,1)+
+  (IIF(length(substr(IMEI,2,1) * 2) < 2,substr(IMEI,2,1) * 2,1 + substr(IMEI,2,1) * 2 % 10))+
+  substr(IMEI,3,1)+
+  (IIF(length(substr(IMEI,4,1) * 2) < 2,substr(IMEI,4,1) * 2,1 + substr(IMEI,4,1) * 2 % 10))+
+  substr(IMEI,5,1)+
+  (IIF(length(substr(IMEI,6,1) * 2) < 2,substr(IMEI,6,1) * 2,1 + substr(IMEI,6,1) * 2 % 10))+
+  substr(IMEI,7,1)+
+  (IIF(length(substr(IMEI,8,1) * 2) < 2,substr(IMEI,8,1) * 2,1 + substr(IMEI,8,1) * 2 % 10))+
+  substr(IMEI,9,1)+
+  (IIF(length(substr(IMEI,10,1) * 2) < 2,substr(IMEI,10,1) * 2,1 + substr(IMEI,10,1) * 2 % 10))+
+  substr(IMEI,11,1)+
+  (IIF(length(substr(IMEI,12,1) * 2) < 2,substr(IMEI,12,1) * 2,1 + substr(IMEI,12,1) * 2 % 10))+
+  substr(IMEI,13,1)+
+  (IIF(length(substr(IMEI,14,1) * 2) < 2,substr(IMEI,14,1) * 2,1 + substr(IMEI,14,1) * 2 % 10))+
+  substr(IMEI,15,1))) % 10 == 0 AND length(IMEI) == 15),
+  FOREIGN KEY(modelNumber,modelName) REFERENCES PhoneModel(modelNumber,modelName)
+);
+
+CREATE TABLE rentalContract (
+  customerId INTEGER,
+  IMEI  TEXT,
+  dateOut TEXT,
+  dateBack TEXT,
+  rentalCost REAL,
+  PRIMARY KEY(customerId,IMEI,dateOut),
+  FOREIGN KEY(IMEI) REFERENCES Phone(IMEI) ON DELETE SET NULL,
+  FOREIGN KEY(customerId) REFERENCES Customer(customerId)	
+);
+
+CREATE TRIGGER cost_calculation
+    AFTER UPDATE ON rentalContract
+    WHEN old.dateBack IS NULL AND new.dateBack IS NOT NULL
+BEGIN
+    UPDATE rentalContract 
+        SET rentalCost = round((SELECT baseCost+(dailyCost*(julianday(new.dateBack)-julianday(dateOut)+1)) from
+            PhoneModel join Phone using (modelNumber,modelName) join rentalContract using (IMEI)
+            WHERE Phone.IMEI=new.IMEI),2)
+        WHERE customerId = new.customerId and IMEI = new.IMEI;
+END;
+
+CREATE VIEW CustomerSummary AS
+SELECT customerId,
+    modelName,
+    SUM((julianday(dateBack)-julianday(dateOut)) + 1) as daysRented,
+    IIF(substr(dateBack,6,2)>'06',
+        substr(dateBack,1,4) || '/' || (IIF(substr(dateBack,3,2)<9, '0' || substr(dateBack,3,2)+1, substr(dateBack,3,2) + 1)),
+        substr(dateBack,1,4)-1 || '/' || substr(dateBack,3,2)
+        ) as taxYear,
+    SUM(rentalCost) as rentalCost FROM rentalContract LEFT JOIN Phone USING (IMEI) WHERE dateBack IS NOT NULL GROUP BY customerId,taxYear,modelName;
+    
+
+INSERT INTO PhoneModel
+  (modelNumber, modelName, storage, colour, baseCost, dailyCost) VALUES
+  ('MPUA3LL/A', 'iPhone 14', 128, 'Midnight', 25, 7),
+  ('MPUN3LL/A', 'iPhone 14', 128, 'Starlight', 25, 7),
+  ('MPUX3LL/A', 'iPhone 14', 128, 'Purple', 40, 8.5),
+  ('MPVH3LL/A', 'iPhone 14', 128, 'Blue', 40, 8.5),
+  ('MPXT3LL/A', 'iPhone 14 Pro', 128, 'Space Black', 30, 5.5),
+  ('MQ003LL/A', 'iPhone 14 Pro', 128, 'Silver', 30, 5.5),
+  ('MQ063LL/A', 'iPhone 14 Pro', 128, 'Gold', 30, 5.5),
+  ('ML973LL/A', 'iPhone 13', 128, 'Pink', 25, 5),
+  ('ML9C3LL/A', 'iPhone 13', 128, 'Blue', 25, 5),
+  ('MLA23LL/A', 'iPhone 13', 128, 'Midnight', 25, 5),
+  ('MGEF3LL/A', 'iPhone 12', 64, 'Black', 20, 4),
+  ('MGEG3LL/A', 'iPhone 12', 64, 'White', 20, 4),
+  ('MGEK3LL/A', 'iPhone 12', 64, 'Blue',  25, 5),
+  ('MGEQ3LL/A', 'iPhone 12', 64, 'Green', 25, 5),
+  ('MH8D3LL/A', 'iPhone 11', 64, 'Black', 15, 3),
+  ('MH8E3LL/A', 'iPhone 11', 64, 'White', 15, 3),
+  ('MH8Y3LL/A', 'iPhone 11', 64, 'Black', 15, 3 ),
+  ('MH8K3LL/A', 'iPhone 11', 128, 'Black', 25, 4);
+
+  INSERT INTO Customer (customerId, customerName, customerEmail) VALUES
+  (1, 'Alice', 'alice@email.com'),
+  (2, 'Bob', 'bob@email.com'),
+  (3, 'Charlie', 'charlie@email.com'),
+  (4, 'David', 'david@email.com');
+
+  INSERT INTO Phone (modelNumber, modelName, IMEI) VALUES
+  ('MQ003LL/A','iPhone 14 Pro','892982483541678'),
+  ('MH8Y3LL/A','iPhone 11','377093661263871'),
+  ('MGEQ3LL/A','iPhone 12','911863857141252'),
+  ('MH8K3LL/A','iPhone 11','653400919056178'),
+  ('MPUX3LL/A','iPhone 14','099663269579030'),
+  ('ML9C3LL/A','iPhone 13','462343095072034'),
+  ('MPUX3LL/A','iPhone 14','812926040226627'),
+  ('MH8D3LL/A','iPhone 11','925301657288530'),
+  ('ML973LL/A','iPhone 13','798728635533088'),
+  ('MH8E3LL/A','iPhone 11','796408665964527'),
+  ('MH8Y3LL/A','iPhone 11','253389271427081'),
+  ('MQ063LL/A','iPhone 14 Pro','983948135387638'),
+  ('MPUN3LL/A','iPhone 14','896710807275400'),
+  ('MH8K3LL/A','iPhone 11','412378296262738'),
+  ('MQ003LL/A','iPhone 14 Pro','067003906642388'),
+  ('ML973LL/A','iPhone 13','986090185872891'),
+  ('MQ063LL/A','iPhone 14 Pro','342102125598582'),
+  ('MH8K3LL/A','iPhone 11','526582438150627'),
+  ('MGEK3LL/A','iPhone 12','223432065590578'),
+  ('MPUX3LL/A','iPhone 14','073250277672567'),
+  ('ML973LL/A','iPhone 13','601371135810610'),
+  ('MH8K3LL/A','iPhone 11','338437576949942'),
+  ('MGEQ3LL/A','iPhone 12','173105863781751'),
+  ('MPUX3LL/A','iPhone 14','501301997215260'),
+  ('MQ063LL/A','iPhone 14 Pro','285751980245868'),
+  ('MH8K3LL/A','iPhone 11','314123213680086'),
+  ('MH8E3LL/A','iPhone 11','531405064022444'),
+  ('ML9C3LL/A','iPhone 13','354951637273695'),
+  ('MH8K3LL/A','iPhone 11','922006862796895'),
+  ('MH8Y3LL/A','iPhone 11','936004616440468'),
+  ('MGEK3LL/A','iPhone 12','162546545225472'),
+  ('MGEG3LL/A','iPhone 12','122775457970663'),
+  ('MGEQ3LL/A','iPhone 12','339193059045588'),
+  ('MPUX3LL/A','iPhone 14','227344136012902'),
+  ('MH8K3LL/A','iPhone 11','172374361687933'),
+  ('MQ003LL/A','iPhone 14 Pro','567497214513056'),
+  ('MH8D3LL/A','iPhone 11','067648394621482'),
+  ('ML973LL/A','iPhone 13','735628098560527'),
+  ('MPUA3LL/A','iPhone 14','918319124797668'),
+  ('MQ003LL/A','iPhone 14 Pro','574104030322081'),
+  ('MQ003LL/A','iPhone 14 Pro','637511502870972'),
+  ('MH8Y3LL/A','iPhone 11','566820379839217'),
+  ('MGEF3LL/A','iPhone 12','209947422765041'),
+  ('MQ003LL/A','iPhone 14 Pro','325547519666398'),
+  ('MQ003LL/A','iPhone 14 Pro','321422914471261'),
+  ('MH8D3LL/A','iPhone 11','197999429982594'),
+  ('MGEF3LL/A','iPhone 12','754870299725584'),
+  ('MQ003LL/A','iPhone 14 Pro','812114951907275'),
+  ('MPVH3LL/A','iPhone 14','140620770433593'),
+  ('ML973LL/A','iPhone 13','605119329892225'),
+  ('MPUN3LL/A','iPhone 14','317002771561291'),
+  ('MH8Y3LL/A','iPhone 11','676733765059521'),
+  ('MQ063LL/A','iPhone 14 Pro','361312888206309'),
+  ('ML9C3LL/A','iPhone 13','118571567980213'),
+  ('MLA23LL/A','iPhone 13','457049202815739'),
+  ('MH8K3LL/A','iPhone 11','563377639878231'),
+  ('MH8E3LL/A','iPhone 11','126274561668625'),
+  ('MLA23LL/A','iPhone 13','962209272902514'),
+  ('MGEQ3LL/A','iPhone 12','887123047386329'),
+  ('MPUX3LL/A','iPhone 14','367813163624342'),
+  ('MGEQ3LL/A','iPhone 12','802077254062209'),
+  ('MPXT3LL/A','iPhone 14 Pro','580455985837511'),
+  ('ML973LL/A','iPhone 13','201092081280558'),
+  ('MH8Y3LL/A','iPhone 11','898846255561012'),
+  ('MH8Y3LL/A','iPhone 11','353642471032666'),
+  ('MPXT3LL/A','iPhone 14 Pro','791096277958048'),
+  ('ML9C3LL/A','iPhone 13','332775527701458'),
+  ('ML973LL/A','iPhone 13','449477874793887'),
+  ('MGEF3LL/A','iPhone 12','941971048977049'),
+  ('MGEF3LL/A','iPhone 12','640748585362973'),
+  ('MQ003LL/A','iPhone 14 Pro','525915145229956'),
+  ('MPUX3LL/A','iPhone 14','144505004210394'),
+  ('MH8D3LL/A','iPhone 11','577178342400725'),
+  ('MPUA3LL/A','iPhone 14','164499543668582'),
+  ('MGEQ3LL/A','iPhone 12','010270547592383'),
+  ('MH8Y3LL/A','iPhone 11','256192954835415'),
+  ('MPUX3LL/A','iPhone 14','985482955486484'),
+  ('MH8Y3LL/A','iPhone 11','702063030933328'),
+  ('MPUX3LL/A','iPhone 14','255416592340970'),
+  ('MPUX3LL/A','iPhone 14','259715471737545'),
+  ('MPUN3LL/A','iPhone 14','697745387403254'),
+  ('MGEK3LL/A','iPhone 12','014237369878402'),
+  ('MPVH3LL/A','iPhone 14','427829283924063'),
+  ('MPUA3LL/A','iPhone 14','354368343501956'),
+  ('MPUN3LL/A','iPhone 14','066435462780916'),
+  ('MGEQ3LL/A','iPhone 12','510086111482081'),
+  ('MGEQ3LL/A','iPhone 12','171835353986674'),
+  ('MH8D3LL/A','iPhone 11','547602385444966'),
+  ('MGEG3LL/A','iPhone 12','865369246975224'),
+  ('MQ003LL/A','iPhone 14 Pro','755118596396876'),
+  ('MH8K3LL/A','iPhone 11','002557749040470'),
+  ('MH8D3LL/A','iPhone 11','859128511515257'),
+  ('MGEK3LL/A','iPhone 12','948507538152389'),
+  ('MLA23LL/A','iPhone 13','572924893627611'),
+  ('MH8D3LL/A','iPhone 11','310905871484908'),
+  ('MPXT3LL/A','iPhone 14 Pro','040254728771598'),
+  ('ML9C3LL/A','iPhone 13','275856235679100'),
+  ('MH8Y3LL/A','iPhone 11','995397354508183');
+
+
+  INSERT INTO rentalContract (customerId, IMEI, dateOut, dateBack, rentalCost) VALUES
+  (1,NULL,'2020-04-11','2020-07-02',100),
+  (1,'986090185872891','2021-11-08','2022-02-03',250),
+  (1,NULL,'2021-09-07','2021-10-07',200),
+  (1,NULL,'2021-11-08','2021-12-12',200),
+  (1,'099663269579030','2022-10-09','2022-12-09',325),
+  (2,'995397354508183','2022-11-09','2023-01-01',400),
+  (1,'986090185872891','2023-01-08','2023-02-03',150),
+  (1,'275856235679100','2023-02-20','2023-04-03',150),
+  (2,'040254728771598','2023-09-10', NULL, NULL);
+
+  UPDATE rentalContract SET dateBack='2023-09-31' WHERE IMEI='040254728771598' AND dateBack IS NULL;
+
+  SELECT CustomerID, IMEI, dateOut, dateBack, '$' || rentalCost AS rentalCost
+  FROM RentalContract
+  WHERE customerId = 2 AND IMEI = '040254728771598';
+
+  SELECT *FROM rentalContract;
+  select * from CustomerSummary;
+------------------------------//-------------------------------------------------------
+INSERT INTO PhoneModel (modelNumber, modelName, baseCost, storage, colour, dailyCost) 
+VALUES ('MPXL3LL/A', 'iPhone 14', 500, 256, 'Blue', 10);
+
+INSERT INTO Phone (modelNumber, modelName, IMEI) 
+VALUES ('MPXL3LL/A', 'iPhone 14', '490154203237518');
+
+INSERT INTO Customer (customerId, customerName, customerEmail) 
+VALUES (5, 'John Doe', 'john@example.com');
+INSERT INTO Customer (customerId, customerName, customerEmail) 
+VALUES (6, 'Johne Doe', 'john@example.com');
+
+INSERT INTO rentalContract (customerId, IMEI, dateOut, dateBack, rentalCost) 
+VALUES (6, '490154203237518', '2023-07-13', NULL, NULL);
+
+UPDATE RentalContract SET dateBack = '2023-07-14' where customerId = 6;
+
+SELECT CustomerID, IMEI, dateOut, dateBack, '$' || rentalCost AS rentalCost
+FROM RentalContract
+WHERE customerId = 6 AND IMEI = '490154203237518';
+
+
+select * from CustomerSummary;
+
+
+-- Inserting into Customer
+INSERT INTO Customer(customerId, customerName, customerEmail) VALUES (7, 'Customer A', 'a@email.com');
+INSERT INTO Customer(customerId, customerName, customerEmail) VALUES (8, 'Customer B', 'b@email.com');
+
+-- Inserting into PhoneModel
+INSERT INTO PhoneModel(modelNumber, modelName, storage, colour, baseCost, dailyCost) VALUES (7, 'iPhone 11', 64, 'Black', 100, 5);
+INSERT INTO PhoneModel(modelNumber, modelName, storage, colour, baseCost, dailyCost) VALUES (8, 'iPhone 14 Pro', 128, 'Silver', 150, 10);
+
+-- Inserting into Phone
+INSERT INTO Phone(modelNumber, modelName, IMEI) VALUES (7, 'iPhone 11', '123456789012347');
+INSERT INTO Phone(modelNumber, modelName, IMEI) VALUES (8, 'iPhone 14 Pro', '234567890123454');
+
+-- Inserting into rentalContract
+INSERT INTO rentalContract(customerId, IMEI, dateOut) VALUES (7, '123456789012347', '2022-06-30');
+INSERT INTO rentalContract(customerId, IMEI, dateOut) VALUES (7, '234567890123454', '2022-07-01');
+INSERT INTO rentalContract(customerId, IMEI, dateOut) VALUES (8, NULL, '2022-06-29');
+INSERT INTO rentalContract(customerId, IMEI, dateOut) VALUES (8, '123456789012347', '2023-01-01');
+
+-- dateback and rental cost will be NULL
+SELECT * FROM rentalContract;
+-- display nothing
+SELECT * FROM CustomerSummary;
+
+-- trigger 4 time and update the rental cost for each imei except for 'Null imei'
+UPDATE rentalContract SET dateBack = '2022-07-01' WHERE customerId = 7 AND IMEI = '123456789012347';
+UPDATE rentalContract SET dateBack = '2022-07-03' WHERE customerId = 7 AND IMEI = '234567890123454';
+UPDATE rentalContract SET dateBack = '2022-07-01' WHERE customerId = 8 AND IMEI IS NULL;
+UPDATE rentalContract SET dateBack = '2023-01-03' WHERE customerId = 8 AND IMEI = '123456789012347';
+
+-- display updated value
+SELECT * FROM rentalContract;
+-- display view
+SELECT * FROM CustomerSummary;
+
+CREATE VIEW CustomerSummary AS
+SELECT customerId,
+    modelName,
+    SUM((julianday(dateBack)-julianday(dateOut)) + 1) as daysRented,
+    IIF(substr(dateBack,6,2)>'06',
+        substr(dateBack,1,4) || '/' || (IIF(substr(dateBack,3,2)<9, '0' || substr(dateBack,3,2)+1, substr(dateBack,3,2) + 1)),
+        (substr(dateBack,1,4)-1) || '/' || substr(dateBack,3,2)
+        ) as taxYear,
+    SUM(rentalCost) as rentalCost FROM rentalContract LEFT JOIN Phone USING (IMEI) WHERE dateBack IS NOT NULL GROUP BY customerId,taxYear,modelName;
+
+Drop view if exists CustomerSummary;
+
+
+CREATE TRIGGER cost_calculation
+    AFTER UPDATE ON rentalContract
+    WHEN old.dateBack IS NULL AND new.dateBack IS NOT NULL
+BEGIN
+    UPDATE rentalContract 
+        SET rentalCost = round((SELECT baseCost+(dailyCost*(julianday(new.dateBack)-julianday(dateOut)+1)) from
+            PhoneModel join Phone using (modelNumber,modelName) join rentalContract using (IMEI)
+            WHERE Phone.IMEI=new.IMEI),2)
+        WHERE customerId = new.customerId and IMEI = new.IMEI;
+END;

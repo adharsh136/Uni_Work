@@ -1,0 +1,1 @@
+select premiered as year,count(title_id) as number_of_movies from titles group by year order by number_of_movies DESC, year DESC;

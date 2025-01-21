@@ -1,0 +1,1 @@
+select orderNumber as order_number,count(orderNumber) as number_of_line_items,round(sum(quantityOrdered*priceEach),2) as total_cost from orderDetails group by orderNumber order by total_cost DESC;

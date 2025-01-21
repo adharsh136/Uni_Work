@@ -1,0 +1,1 @@
+select A.countryCode from CountryLanguage as A join CountryLanguage as B on A.countryCode=B.countryCode where (A.langauge=='English' and B.language='French') and A.isOfficial=='T' and B.isOfficial=='T';

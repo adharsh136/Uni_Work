@@ -1,0 +1,1 @@
+select  a.person_id,a.name,count(title_id) as number_of_Top250_movies from people as a left join castmembers as b on a.person_id = b.person_id group by a.person_id order by number_of_Top250_movies DESC;

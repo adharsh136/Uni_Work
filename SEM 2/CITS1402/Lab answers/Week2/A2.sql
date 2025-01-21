@@ -1,0 +1,1 @@
+SELECT *,ABS(homescore-awayscore) AS margin FROM AFLResult;

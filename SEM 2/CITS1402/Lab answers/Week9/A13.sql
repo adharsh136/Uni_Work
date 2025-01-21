@@ -1,0 +1,1 @@
+select round(runtime_minutes/60.0) as number_of_hours,count(*) as number_of_movies from titles group by number_of_hours;

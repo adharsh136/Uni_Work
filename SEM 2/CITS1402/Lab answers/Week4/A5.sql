@@ -1,0 +1,1 @@
+select titles.title,ratings.rating,ratings.votes from titles join ratings on titles.title_id=ratings.title_id where ratings.votes>1000000 order by ratings.rating DESC;

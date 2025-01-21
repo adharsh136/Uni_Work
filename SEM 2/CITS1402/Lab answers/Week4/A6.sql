@@ -1,0 +1,1 @@
+select min(runtime_minutes) as shortest,max(runtime_minutes) as longest,avg(runtime_minutes) as average from titles;

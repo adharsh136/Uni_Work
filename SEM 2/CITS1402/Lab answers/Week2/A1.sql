@@ -1,0 +1,1 @@
+SELECT * FROM AFLResult WHERE homescore > awayscore;

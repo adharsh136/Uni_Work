@@ -1,0 +1,1 @@
+select A.name,B.language,B.percentage,C.language,C.percentage from Country as A join CountryLanguage as B on A.code=B.countryCode join CountryLanguage as C on B.countryCode=C.countryCode where B.isOfficial=='T' and C.isOfficial=='F' and C.percentage>B.percentage;

@@ -1,0 +1,1 @@
+select winnerName as name,count(*) as number_of_matches,round(avg(minutes),2) as average_length from ATPResult group by name having number_of_matches >= 10 order by average_length;

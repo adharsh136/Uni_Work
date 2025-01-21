@@ -1,0 +1,1 @@
+SELECT * FROM AFLResult WHERE (homeTeam=='West Coast' AND homescore>=awayscore) OR (awayTeam=='West Coast' AND awayscore>=homescore);

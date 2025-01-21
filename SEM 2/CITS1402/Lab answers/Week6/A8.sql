@@ -1,0 +1,1 @@
+select yr as Year,count(*) as NumMatchesWon from WTAResult where winnerCountry='AUS' group by yr;
